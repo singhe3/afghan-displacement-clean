@@ -1,44 +1,4 @@
-﻿# Afghanistan Displacement Analysis
-
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://python.org)
-[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-
-Analysis of conflict-induced displacement in Afghanistan.
-
-## 📋 Overview
-
-This project analyzes the relationship between conflict (fatalities) and displacement in Afghanistan using causal inference methods.
-
-## 🎯 Research Questions
-
-1. **DAG 1**: How does location and date affect displacement?
-2. **DAG 2**: How do fatalities affect displacement?
-
-## 🚀 Quick Start
-
-```bash
-# Clone the repo
-git clone https://github.com/yourusername/afghan-displacement-clean.git
-cd afghan-displacement-clean
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run the analysis
-python run.py
-
-
-
-
-
-
-
-
-### Create `requirements.txt`
-
-```powershell
-@'
-pandas>=2.0.0
+﻿pandas>=2.0.0
 numpy>=1.24.0
 scikit-learn>=1.3.0
 matplotlib>=3.7.0

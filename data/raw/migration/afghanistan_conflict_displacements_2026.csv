@@ -1,0 +1,27 @@
+DISP_DATE,ORIG_PROV_CODE,ORIG_PROV_NAME,ORIG_DIST_CODE,ORIG_DIST_NAME,DISP_PROV_CODE,DISP_PROV_NAME,DISP_DIST_CODE,DISP_DIST_NAME,DISP_IND,DISP_FAM,DISP_ADULT_MALE,DISP_ADULT_FEMALE,DISP_CHILDREN_U18
+#date+occurred,#admin1+code+x_origin,#admin1+name+x_origin,#admin2+code+x_origin,#admin2+name+x_origin,#admin1+code+x_destination,#admin1+name+x_destination,#admin2+code+x_destination,#admin2+name+x_destination,#affected+displaced,#affected+dispalced+families,#affected+displaced+m+adults,#affected+displaced+f+adults,#affected+dispalced+children
+26-Feb-26,AF06,Nangarhar,AF0611,Pachieragam,AF06,Nangarhar,AF0611,Pachieragam,119,17,35,37,48
+26-Feb-26,AF06,Nangarhar,AF0614,Goshta,AF06,Nangarhar,AF0614,Goshta,357,51,104,111,143
+26-Feb-26,AF06,Nangarhar,AF0615,Achin,AF06,Nangarhar,AF0615,Achin,1855,265,538,575,742
+26-Feb-26,AF06,Nangarhar,AF0616,Shinwar,AF06,Nangarhar,AF0616,Shinwar,4116,588,1194,1276,1646
+26-Feb-26,AF06,Nangarhar,AF0620,Nazyan,AF06,Nangarhar,AF0620,Nazyan,665,95,193,206,266
+26-Feb-26,AF06,Nangarhar,AF0622,Durbaba,AF06,Nangarhar,AF0622,Durbaba,42,6,12,13,17
+26-Feb-26,AF06,Nangarhar,AF0617,Muhmand Dara,AF06,Nangarhar,AF0607,Rodat,98,14,28,30,39
+26-Feb-26,AF06,Nangarhar,AF0617,Muhmand Dara,AF06,Nangarhar,AF0617,Muhmand Dara,9121,1303,2646,2827,3648
+26-Feb-26,AF06,Nangarhar,AF0618,Lalpur,AF06,Nangarhar,AF0618,Lalpur,154,22,45,48,62
+26-Feb-26,AF15,Kunar,AF1510,Khaskunar,AF15,Kunar,AF1510,Khaskunar,1295,185,376,401,518
+26-Feb-26,AF15,Kunar,AF1505,Sarkani,AF15,Kunar,AF1504,Narang,1302,186,378,404,521
+26-Feb-26,AF15,Kunar,AF1505,Sarkani,AF15,Kunar,AF1505,Sarkani,602,86,175,187,241
+26-Feb-26,AF15,Kunar,AF1505,Sarkani,AF15,Kunar,AF1501,Asadabad,5810,830,1685,1801,2324
+26-Feb-26,AF15,Kunar,AF1505,Sarkani,AF15,Kunar,AF1503,Watapur,672,96,195,208,269
+26-Feb-26,AF15,Kunar,AF1502,Marawara,AF15,Kunar,AF1502,Marawara,3703,529,1074,1148,1481
+26-Feb-26,AF15,Kunar,AF1515,Nari,AF06,Nangarhar,AF0604,Chaparhar,49,7,14,15,20
+26-Feb-26,AF15,Kunar,AF1515,Nari,AF06,Nangarhar,AF0601,Jalalabad,7616,1088,2209,2361,3046
+26-Feb-26,AF15,Kunar,AF1515,Nari,AF06,Nangarhar,AF0606,Kuzkunar,1344,192,390,417,538
+26-Feb-26,AF15,Kunar,AF1515,Nari,AF15,Kunar,AF1509,Chawkay,847,121,246,263,339
+26-Feb-26,AF15,Kunar,AF1515,Nari,AF15,Kunar,AF1504,Narang,1848,264,536,573,739
+26-Feb-26,AF15,Kunar,AF1515,Nari,AF15,Kunar,AF1501,Asadabad,5579,797,1618,1729,2232
+26-Feb-26,AF15,Kunar,AF1515,Nari,AF15,Kunar,AF1506,Shigal Wa Sheltan,994,142,288,308,398
+26-Feb-26,AF15,Kunar,AF1515,Nari,AF15,Kunar,AF1508,Barkunar,1428,204,414,443,571
+26-Feb-26,AF15,Kunar,AF1515,Nari,AF15,Kunar,AF1511,Ghaziabad,1344,192,390,417,538
+26-Feb-26,AF16,Nuristan,AF1606,Kamdesh,AF16,Nuristan,AF1601,Poruns,630,90,183,195,252

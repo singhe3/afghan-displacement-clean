@@ -5,8 +5,10 @@ Afghanistan Displacement Analysis - Main Entry Point
 
 import sys
 import pandas as pd
+import numpy as np
 from pathlib import Path
 import logging
+import json
 
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 logger = logging.getLogger(__name__)
@@ -65,6 +67,12 @@ def process_data():
     combined.to_csv(output_file, index=False)
     print(f"✓ Saved to: {output_file}")
     
+    # Show summary
+    print(f"\n📊 Data Summary:")
+    print(f"  Provinces: {combined['PROVINCE'].nunique()}")
+    print(f"  Date range: {combined['DATE'].min().date()} to {combined['DATE'].max().date()}")
+    print(f"  Total displaced: {combined['DISPLACED'].sum():,.0f}")
+    
     return combined
 
 def run_regression():
@@ -92,56 +100,51 @@ def run_regression():
     X = pd.concat([df[['YEAR', 'MONTH']], province_dummies], axis=1)
     y = df['DISPLACED']
     
-    # Train/test split
     from sklearn.model_selection import train_test_split
     from sklearn.linear_model import LinearRegression
+    from sklearn.ensemble import RandomForestRegressor
     from sklearn.metrics import mean_squared_error, r2_score
     
+    # Split
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.2, random_state=42
     )
     
-    # Train model
-    model = LinearRegression()
-    model.fit(X_train, y_train)
+    # Try multiple models
+    models = {
+        'Linear Regression': LinearRegression(),
+        'Random Forest': RandomForestRegressor(n_estimators=100, random_state=42)
+    }
     
-    # Evaluate
-    y_pred = model.predict(X_test)
-    r2 = r2_score(y_test, y_pred)
-    rmse = mean_squared_error(y_test, y_pred) ** 0.5
+    results = []
+    print("\n📊 Training Models...")
     
-    print(f"\n📊 Results:")
-    print(f"  R² Score:  {r2:.4f}")
-    print(f"  RMSE:      {rmse:,.0f}")
+    for name, model in models.items():
+        model.fit(X_train, y_train)
+        y_pred = model.predict(X_test)
+        r2 = r2_score(y_test, y_pred)
+        rmse = mean_squared_error(y_test, y_pred) ** 0.5
+        
+        results.append({
+            'Model': name,
+            'R²': round(r2, 4),
+            'RMSE': round(rmse, 0)
+        })
+        
+        print(f"  {name}: R²={r2:.4f}, RMSE={rmse:,.0f}")
     
-    # Feature importance
-    importance = pd.DataFrame({
-        'Feature': X.columns,
-        'Coefficient': model.coef_
-    }).sort_values('Coefficient', ascending=False)
-    
-    print(f"\n📈 Top 5 Features:")
-    for i, row in importance.head(5).iterrows():
-        print(f"  {row['Feature']}: {row['Coefficient']:.4f}")
+    # Best model
+    best = max(results, key=lambda x: x['R²'])
+    print(f"\n🏆 Best Model: {best['Model']} (R²={best['R²']:.4f})")
     
     # Save results
     output_dir = Path("outputs/results")
     output_dir.mkdir(parents=True, exist_ok=True)
     
-    results = {
-        'model': 'Linear Regression',
-        'r2': r2,
-        'rmse': rmse,
-        'features': X.columns.tolist(),
-        'coefficients': model.coef_.tolist()
-    }
+    pd.DataFrame(results).to_csv(output_dir / 'regression_results.csv', index=False)
+    print(f"\n✓ Results saved to: {output_dir / 'regression_results.csv'}")
     
-    import json
-    with open(output_dir / 'regression_results.json', 'w') as f:
-        json.dump(results, f, indent=2)
-    
-    print(f"\n✓ Results saved to: {output_dir / 'regression_results.json'}")
-    print(f"✓ Model summary saved")
+    return results
 
 def run_did():
     """Run Difference-in-Differences model."""
