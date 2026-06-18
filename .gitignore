@@ -1,0 +1,29 @@
+﻿# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.venv/
+ENV/
+env/
+
+# Data
+data/raw/*.csv
+data/raw/*.xlsx
+!data/raw/.gitkeep
+data/processed/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Outputs
+outputs/
+!outputs/.gitkeep
